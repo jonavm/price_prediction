@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modelo de Regresión Lineal para Precios de Automóviles</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #dddddd;
+            margin-top: 40px;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type=number], input[type=file] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #444444;
+            border-radius: 4px;
+            background-color: #222222;
+            color: #ffffff;
+        }
+        input[type=submit] {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #333333;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type=submit]:hover {
+            background-color: #444444;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333333;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #444444;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modelo de Regresión Lineal para Precios de Automóviles</h1>
+
+    <!-- Formulario para cargar el archivo CSV -->
+    <h2>Cargar Datos</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Cargar Archivo">
+    </form>
+
+    <!-- Botón para entrenar el modelo -->
+    <h2>Entrenar Modelo</h2>
+    <form action="/feed" method="get">
+        <input type="submit" value="Entrenar Modelo">
+    </form>
+
+    <!-- Formulario para realizar predicciones -->
+    <h2>Realizar Predicción</h2>
+    <form action="/predict" method="post">
+        <label for="horsepower">Horsepower:</label>
+        <input type="number" id="horsepower" name="horsepower">
+        <label for="citympg">City MPG:</label>
+        <input type="number" id="citympg" name="citympg">
+        <label for="highwaympg">Highway MPG:</label>
+        <input type="number" id="highwaympg" name="highwaympg">
+        <label for="enginesize">Engine Size:</label>
+        <input type="number" id="enginesize" name="enginesize">
+        <label for="gas">Gas (1 for Yes, 0 for No):</label>
+        <input type="number" id="gas" name="gas">
+        <input type="submit" value="Predecir">
+    </form>
+
+    <!-- Enlace para descargar resultados -->
+    <h2>Descargar Resultados</h2>
+    <a href="/download">Descargar Resultados</a>
+</body>
+</html>
